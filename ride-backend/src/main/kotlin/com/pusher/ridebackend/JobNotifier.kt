@@ -14,6 +14,7 @@ class JobNotifier(
     fun notify(job: String, action: Actions, location: Location) {
         val interests = when (action) {
             Actions.NEW_JOB -> listOf("driver_broadcast")
+            Actions.ACCEPTED_JOB -> listOf("driver_broadcast")
             else -> listOf("rider_$job")
         }
 
@@ -24,23 +25,8 @@ class JobNotifier(
                                 "data" to mapOf(
                                         "action" to action.name,
                                         "job" to job,
-                                        "latitude" to location.latitude,
-                                        "longitude" to location.longitude
-                                )
-                        )
-                )
-        )
-    }
-
-    fun notify(job: String, rating: Int) {
-        pusher.publish(
-                listOf("driver_$job"),
-                mapOf(
-                        "fcm" to mapOf(
-                                "data" to mapOf(
-                                        "action" to Actions.RATE.name,
-                                        "job" to job,
-                                        "rating" to rating
+                                        "latitude" to location.latitude.toString(),
+                                        "longitude" to location.longitude.toString()
                                 )
                         )
                 )

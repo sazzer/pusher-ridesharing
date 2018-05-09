@@ -20,6 +20,7 @@ class RideController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun acceptJob(@PathVariable("job") job: String, @RequestBody location: Location) {
         jobNotifier.notify(job, Actions.ACCEPT_JOB, location)
+        jobNotifier.notify(job, Actions.ACCEPTED_JOB, location)
     }
 
     @RequestMapping(value = ["/update-location/{job}"], method = [RequestMethod.POST])
@@ -38,11 +39,5 @@ class RideController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun dropoff(@PathVariable("job") job: String, @RequestBody location: Location) {
         jobNotifier.notify(job, Actions.DROPOFF, location)
-    }
-
-    @RequestMapping(value = ["/rate/{job}"], method = [RequestMethod.POST])
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun rate(@PathVariable("job") job: String, @RequestBody rating: Int) {
-        jobNotifier.notify(job, rating)
     }
 }

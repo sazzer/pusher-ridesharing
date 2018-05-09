@@ -11,12 +11,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        android:id="@+id/request_ride"
-        android:text="Request Ride"
+        android:id="@+id/pickup_ride"
+        android:text="Pickup"
         android:padding="10dp"
         android:layout_marginTop="20dp"
         android:paddingRight="10dp"
-        android:enabled="false"
-        android:onClick="requestRide" />
+        android:visibility="invisible"
+        android:onClick="pickupRide" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:id="@+id/dropoff_ride"
+        android:text="Dropoff"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:visibility="invisible"
+        android:onClick="dropoffRide" />
 
 </fragment>
