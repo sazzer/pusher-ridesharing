@@ -2,6 +2,8 @@
 
 Many user facing applications can be greatly improved by introducing real-time notifications for the user. This is especially important when the user is actively waiting for a service to arrive. 
 
+This repository is discussed at [Push Notifications for Ride Sharing](https://pusher.com/tutorials/kotlin-ride-sharing-push-notifications).
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
